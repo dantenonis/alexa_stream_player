@@ -1,0 +1,106 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "PlayStreamIntent",
+          "samples": [
+            "ouvir",
+            "tocar",
+            "abra",
+            "abrir"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "AboutIntent",
+          "samples": [
+            "sobre vipfm radio",
+            "sobre vipfm"
+          ]
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.LoopOnIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.RepeatIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ShuffleOnIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.LoopOffIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ShuffleOffIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "ajuda",
+            "suporte"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "PlayMusicStreamIntent",
+          "samples": [
+            "música",
+            "tocar musícas",
+            "músicas"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "PlayNewsStreamIntent",
+          "samples": [
+            "notícia",
+            "tocar notícias",
+            "ouvir notícias",
+            "Notícias"
+          ]
+        }
+      ],
+      "types": [],
+      "invocationName": "vip f. m."
+    }
+  }
+}
