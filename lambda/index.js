@@ -87,6 +87,7 @@ const PlayStreamIntentHandler = {
       || handlerInput.requestEnvelope.request.type === 'IntentRequest'
       && (
         handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'PlayMusicStreamIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent'
@@ -100,65 +101,23 @@ const PlayStreamIntentHandler = {
   handle(handlerInput) {
     console.log(`PlayStreamIntentHandler: ${handlerInput.requestEnvelope.request.type}`);
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-    const speechOutput = requestAttributes.t('GREETING');
-    const askStation = requestAttributes.t('ASK_STATION');
+    const speechGreeting = requestAttributes.t('GREETING');
     const greetingCard = requestAttributes.t('GREETING_CARD');
     
-    return handlerInput.responseBuilder
-        .speak(speechOutput + askStation)
-        .reprompt(askStation)
-        .withSimpleCard(greetingCard)
-        .getResponse();
-  },
-};
-
-const PlayMusicStreamIntentHandler = {
-  canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && (
-        handlerInput.requestEnvelope.request.intent.name === 'PlayMusicStreamIntent'
-      );
-  },
-  handle(handlerInput) {
-    console.log(`PlayMusicStreamIntentHandler: ${handlerInput.requestEnvelope.request.type}`);
+        
     streamPlayingId = 0;
     const stream = getStreamObject(0);
-    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-    const speechOutput = requestAttributes.t('MUSIC_GREETING');
     
     handlerInput.responseBuilder
-        .speak(speechOutput)
-        .withSimpleCard(speechOutput)
+        .speak(speechGreeting)
+        .withSimpleCard(greetingCard)
         .addAudioPlayerPlayDirective('REPLACE_ALL', stream.url, stream.token, 0, null, stream.metadata);
 
     return handlerInput.responseBuilder
-      .getResponse();
+      .getResponse();        
   },
 };
 
-const PlayNewsStreamIntentHandler = {
-  canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && (
-        handlerInput.requestEnvelope.request.intent.name === 'PlayNewsStreamIntent'
-      );
-  },
-  handle(handlerInput) {
-    console.log(`PlayNewsStreamIntentHandler: ${handlerInput.requestEnvelope.request.type}`);  
-    streamPlayingId = 1;
-    const stream = getStreamObject(1);
-    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-    const speechOutput = requestAttributes.t('NEWS_GREETING');
-    
-    handlerInput.responseBuilder
-        .speak(speechOutput)
-        .withSimpleCard(speechOutput)
-        .addAudioPlayerPlayDirective('REPLACE_ALL', stream.url, stream.token, 0, null, stream.metadata);
-
-    return handlerInput.responseBuilder
-      .getResponse();
-  },
-};
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -330,8 +289,6 @@ exports.handler = skillBuilder
     HelpIntentHandler,
     ExceptionEncounteredRequestHandler,
     SessionEndedRequestHandler,
-    PlayMusicStreamIntentHandler,
-    PlayNewsStreamIntentHandler,
     PlaybackResumeIntentHandler
   )
   .addRequestInterceptors(LocalizationInterceptor)

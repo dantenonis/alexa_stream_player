@@ -21,6 +21,7 @@
                     "name": "AboutIntent",
                     "slots": [],
                     "samples": [
+                        "sobre",
                         "sobre vipfm radio",
                         "sobre vipfm"
                     ]
@@ -78,25 +79,6 @@
                     "samples": [
                         "ajuda",
                         "suporte"
-                    ]
-                },
-                {
-                    "name": "PlayMusicStreamIntent",
-                    "slots": [],
-                    "samples": [
-                        "música",
-                        "tocar musícas",
-                        "músicas"
-                    ]
-                },
-                {
-                    "name": "PlayNewsStreamIntent",
-                    "slots": [],
-                    "samples": [
-                        "notícia",
-                        "tocar notícias",
-                        "ouvir notícias",
-                        "Notícias"
                     ]
                 }
             ],
