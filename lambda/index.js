@@ -18,6 +18,8 @@ function getStreamObject(streamIndex){
     
     const logoUrl = Util.getS3PreSignedUrl("Media/pt-BR_largeIconUri.png");
     const backgroundImage = Util.getS3PreSignedUrl("Media/pt-BR_backgroundImage.png");
+    const logoNewsUrl = Util.getS3PreSignedUrl("Media/pt-BR_vipfm_909_logo.png");
+    const backgroundImageNews = Util.getS3PreSignedUrl("Media/pt-BR_backgroundImage_909.png");
     
     const STREAMS = [
       {
@@ -52,13 +54,13 @@ function getStreamObject(streamIndex){
         'token': `vipfm2:${new Date()}`,
         'url': 'https://streaming.inweb.com.br/vipfm2',
         'metadata': {
-          'title': 'VIP FM - News',
-          'subtitle': '90,9 Afiliada Rádio Bandeirantes',
+          'title': 'VIP FM - Notícias e Esportes',
+          'subtitle': '90,9 FM',
           'art': {
             'sources': [
               {
                 'contentDescription': 'VIP FM News',
-                'url': logoUrl,
+                'url': logoNewsUrl,
                 'widthPixels': 512,
                 'heightPixels': 512,
               },
@@ -68,7 +70,7 @@ function getStreamObject(streamIndex){
             'sources': [
               {
                 'contentDescription': 'VIP FM News',
-                'url': backgroundImage,
+                'url': backgroundImageNews,
                 'widthPixels': 1024,
                 'heightPixels': 640,
               },
